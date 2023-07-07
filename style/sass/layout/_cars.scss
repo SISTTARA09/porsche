@@ -1,0 +1,65 @@
+@use "../global" as *;
+@use "../helpers" as *;
+
+section.cars {
+	.container {
+		h1 {
+			color: $main;
+			border-bottom: 1px solid $main;
+			width: fit-content;
+			margin: auto;
+		}
+		.boxes {
+			@include flex(row);
+			justify-content: space-between;
+			margin-top: 3rem;
+			row-gap: 1rem;
+			.box {
+				flex: 0 1 30%;
+				box-shadow: 0 0 1px 1px #cdbb5415;
+				.image {
+					overflow: hidden;
+					margin: 0;
+					padding: 0;
+					img {
+						width: 100%;
+						aspect-ratio: 1 / 0.65;
+						object-fit: cover;
+						transition: all 0.2s linear;
+						filter: grayscale(0.3);
+						&:hover {
+							filter: grayscale(0);
+							transform: scale(1.05);
+						}
+					}
+				}
+				h3 {
+					position: relative;
+					color: $main;
+					padding: $m $l;
+					&::before {
+						content: "";
+						position: absolute;
+						left: 1px;
+						top: 50%;
+						transform: translateY(-50%);
+						border: 10px solid transparent;
+						border-left-color: $main;
+					}
+				}
+				p {
+					color: $pColor;
+					text-align: justify;
+					padding: $m;
+				}
+				@media ($mediumDevices) {
+					flex: 0 1 45%;
+				}
+				@media ($smallDevices) {
+					flex: 0 1 75%;
+					margin: auto;
+				}
+			}
+		}
+	}
+}

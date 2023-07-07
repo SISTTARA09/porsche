@@ -1,0 +1,45 @@
+@use "../global" as *;
+@use "../helpers" as *;
+
+section.history {
+	.container {
+		@include flex(column);
+		h1 {
+			color: $main;
+			border-bottom: 1px solid $main;
+			width: fit-content;
+			margin: auto;
+		}
+		.articles {
+			@include flex(column);
+      margin-block-start: $xl;
+			gap: $l;
+			article {
+				h3 {
+					position: relative;
+					color: $main;
+					padding: $m $l;
+					&::before {
+						content: "";
+						position: absolute;
+						left: 1px;
+						width: 0;
+						border: 10px solid;
+						border-color: transparent transparent transparent $main;
+					}
+				}
+        p {
+          color: $pColor;
+          line-height: 1.5;
+          text-align: justify;
+          font-size: 1.1rem;
+          padding: $m;
+          @media ($mediumDevices) {
+            font-size: $medium;
+            padding: $s;
+          }
+        }
+			}
+		}
+	}
+}

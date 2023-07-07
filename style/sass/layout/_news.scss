@@ -1,0 +1,46 @@
+@use "../global" as *;
+@use "../helpers" as *;
+
+section.news {
+	.container {
+		h1 {
+			color: $main;
+			width: fit-content;
+			border-bottom: 1px solid $main;
+			margin: auto;
+		}
+		.boxes {
+			@include flex(row);
+			justify-content: space-evenly;
+			padding-block: $xl;
+			gap: $xl;
+			.box {
+				flex: 0 0 30%;
+				min-width: 250px;
+				box-shadow: 0 0 1px 1px #ffd9001f;
+				.image {
+					img {
+						width: 100%;
+						aspect-ratio: 1 / 0.6;
+						transition: all 0.2s linear;
+            border-top-left-radius: .2rem;
+            border-top-right-radius: .2rem;
+						&:hover {
+							filter: grayscale(0.5);
+						}
+					}
+				}
+				h3 {
+					color: $main;
+					padding: $s $m;
+				}
+				p {
+					color: $pColor;
+					padding: $s $m;
+					text-align: justify;
+					font-size: $small;
+				}
+			}
+		}
+	}
+}

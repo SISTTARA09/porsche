@@ -1,0 +1,40 @@
+@use "../helpers" as *;
+@use "../global" as *;
+
+header {
+  height: 70px;
+  > .container {
+    border-bottom: .05rem solid $main;
+    @include flex(row);
+    @extend %f-center;
+    justify-content: space-between;
+    height: 100%;
+    .logo {
+      img {
+        width: 70px;
+        aspect-ratio: 1 / 1;
+        object-fit: contain;
+        @media ($smallDevices) {
+          width: 50px;
+        }
+      }
+    }
+    nav {
+      @include flex(row);
+      @extend %f-center;
+      a {
+        color: $main;
+        padding: $m;
+        font-weight: $bold;
+        transition: color .2s linear;
+        text-transform: capitalize;
+        &:hover {
+          color: $hmain;
+        }
+        @media ($smallDevices) {
+          font-size: $small;
+        }
+      }
+    }
+  }
+}

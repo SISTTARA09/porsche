@@ -1,0 +1,58 @@
+@use "../global" as *;
+@use "../helpers" as *;
+
+section.sport {
+	.container {
+		h1 {
+			color: $main;
+			border-bottom: 1px solid $main;
+			width: fit-content;
+			margin-inline: auto;
+		}
+		.articles {
+      @include flex(column);
+      margin-block: $xl;
+      gap: 2rem;
+      article{
+        position: relative;
+        h3 {
+         color: $main;
+         position: relative;
+         padding: $l $xl;
+         &::before {
+           content: "";
+           position: absolute;
+           left: 2px;
+           border: 10px solid transparent;
+           border-left-color: $main;
+           border-bottom-color: $main;
+         }
+       }
+       p {
+         color: $pColor;
+         line-height: 1.2;
+         text-align: justify;
+         font-size: $medium;
+         text-transform: capitalize;
+         padding-inline: $s;
+         margin-block-start: $m;
+         img {
+           float: left;
+           margin: 0 $l $m 0;
+         }
+       }
+       &:not(:first-child)::before {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: $lmain;
+        left: 50%;
+        transform: translateY(-50%);
+        top: 10px;
+        border-radius: 50%;
+       }
+      }
+    }
+	}
+}
